@@ -1,0 +1,23 @@
+.list{
+    list-style: none;
+    padding-left: 0;
+}
+@media screen and (min-width: 768px) {
+    .box{
+        max-width: 768px;
+    }
+  
+    .list{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (min-width: 1280px) {
+    .box{
+        max-width: 1280px;
+    }
+    .list{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+}
