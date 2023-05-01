@@ -1,0 +1,107 @@
+.list {
+  list-style: none;
+  padding: 0;
+}
+.listItem{
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  color: #ff6b08;
+}
+.link {
+  text-decoration: none;
+}
+.genre {
+  font-size: 12px;
+  line-height: 16px;
+  color: #ff6b08;
+  margin-right: 5px;
+}
+.genreList {
+  display: flex;
+  border-right: solid 1px #ff6b08;
+}
+.boxGenre {
+  display: flex;
+  justify-content: baseline;
+  align-items: baseline;
+}
+.date {
+  margin-left: 10px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #ff6b08;
+}
+.page {
+  font-size: 12px;
+  background-color: inherit;
+  border: none;
+}
+.active {
+  background-color: #ff6b08;
+  color: #fff;
+}
+
+
+@media screen and (min-width: 320px) {
+  .boxList {
+    max-width: 320px;
+  }
+  .box {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .title {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: start;
+    margin-bottom: 0;
+    color: black;
+  }
+  .image{
+    width: 280px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .boxList {
+    max-width: 768px;
+  }
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 32px;
+    margin-top: 60px;
+  }
+  .boxGenre {
+    display: block;
+  }
+  .date {
+    margin-left: 0;
+  }
+  .genreList{
+    border: none;
+  }
+  .listItem{
+    margin-left: 0;
+  }
+  .image{
+    width: 336px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .boxList {
+    max-width: 1280px;
+  }
+  .list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 32px;
+    margin-top: 60px;
+  }
+  .image{
+    width: 393px;
+  }
+}

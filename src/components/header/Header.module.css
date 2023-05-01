@@ -1,0 +1,146 @@
+.box {
+  background-image: url(../../img/abstract-background-with-red-lines\ 1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.label{
+  border-bottom: solid 1px #fff;
+}
+.input{
+  background-color: inherit;
+  color: #fff
+}
+.input::placeholder{
+  color: #fff;
+}
+.btnFind{
+  background-color: inherit;
+}
+.link{
+  text-transform: uppercase;
+  text-decoration: none;
+ 
+}
+.link:hover .link:focus {
+  background-color: #FF6B01;
+  border: inherit;
+}
+.link:focus {
+  background-color: #FF6B01;
+  border: inherit;
+}
+.link:active {
+  background-color: #FF6B01;
+  border: inherit;
+}
+.boxLink{
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 62px;
+}
+
+@media screen and (min-width: 320px) {
+  .box {
+    max-width: 320px;
+    padding-left: 32px;
+    padding-right: 32px;
+    
+  }
+  .logoFilm{
+    display: none;
+  }
+  .headerBtn {
+    display: flex;
+    padding-top: 47px;
+    padding-bottom: 61px;
+    justify-content: space-between;
+  }
+  .btnLogo{
+    background-color: inherit;
+  }
+  .btnNav{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+  }
+  .btnNav:last-child {
+    margin-left: 40px;
+  }
+  .btnNav:nth-last-child(1) {
+    margin-left: 40px;
+  }
+  .form{
+    padding-bottom: 92px;
+  }
+  .link{
+    display: flex;
+    width: 130px;
+    height: 44px;
+    background-color: inherit;
+    border: solid 1px #fff;
+    border-radius: 5px;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  .box {
+    max-width: 768px;
+    height: 216px;
+    padding-left: 32px;
+    padding-right: 32px;
+    
+  }
+  .logoFilm{
+    display: block;
+    font-size: 30px;
+    line-height: 35.16px;
+    color: #fff;
+    font-weight: bold;
+    margin-left: 8px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .boxBtn{
+    display: flex;
+    align-items: baseline;
+  }
+  .headerBtn{
+    align-items: baseline;
+    padding-top: 40px;
+    padding-bottom: 0;
+  }
+  .form{
+    margin-top: 40px;
+    padding-bottom: 0;
+  }
+  .label{
+    margin-left: 215px;
+  }
+  .input{
+    width: 336px;
+  
+  }
+  .boxLink{
+    margin-top: 40px;
+    justify-content: space-evenly;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .box {
+    max-width: 1280px;
+    height: 216px;
+    padding-left: 32px;
+    padding-right: 32px;
+    
+  }
+  .label{
+    margin-left: 443px;
+  }
+}
+
