@@ -78,6 +78,10 @@
   .button{
     margin-left: 20px;
   }
+   .image{
+    width: 240px;
+    height: 357px;
+  }
 
 }
 @media screen and (min-width: 768px) {
