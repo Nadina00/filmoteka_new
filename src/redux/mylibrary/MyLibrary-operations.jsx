@@ -30,7 +30,7 @@ const myLibraryDel = createAsyncThunk("myLibrary/myLibraryDel", async (credentia
 });
 
 const fetchCurrentItems = createAsyncThunk(
-  "myLibrary/myLibraryList",
+  "myLibrary/fetchCurrent",
   async (items, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedItems = state.items;

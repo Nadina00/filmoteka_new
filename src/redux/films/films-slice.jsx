@@ -13,21 +13,23 @@ const initialState = {
 const filmSlice = createSlice({
   name: "film",
   initialState,
-  extraReducers: {
-    [filmOperations.filmPopulerList.pending]: (state, action) => {
-      state.isLoggind = false;
-      state.isLoader = true;
-    },
-    [filmOperations.filmPopulerList.fulfilled]: (state, action) => {
-      state.items = action.payload;
-      state.isLoggind = true;
-      state.isLoader = false;
-    },
-    [filmOperations.filmFind.fulfilled]: (state, action) => {
-      state.items = action.payload;
-      state.isLoggind = true;
-      state.isLoader = false;
-    },
+  reducers: {}, // если нужны свои экшены, добавляй сюда
+  extraReducers: (builder) => {
+    builder
+      .addCase(filmOperations.filmPopulerList.pending, (state) => {
+        state.isLoggind = false;
+        state.isLoader = true;
+      })
+      .addCase(filmOperations.filmPopulerList.fulfilled, (state, action) => {
+        state.items = action.payload;
+        state.isLoggind = true;
+        state.isLoader = false;
+      })
+      .addCase(filmOperations.filmFind.fulfilled, (state, action) => {
+        state.items = action.payload;
+        state.isLoggind = true;
+        state.isLoader = false;
+      });
   },
 });
 

@@ -11,6 +11,7 @@ function App() {
       <Route path="/" element={<HomePage/>} />
       <Route path="/mylibrary" element={<MyLibraryPage/>}/>
       <Route path="/watched" element={<WatchedPage/>}/>
+       <Route path="*" element={<div>Страница не найдена</div>} />
     </Routes>
   );
 }

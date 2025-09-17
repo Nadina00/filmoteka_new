@@ -31,7 +31,7 @@ const watchedDel = createAsyncThunk(
 );
 
 const fetchCurrentWatched = createAsyncThunk(
-  "watched/watchedList",
+  "watched/fetchCurrent",
   async (items, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedItems = state.items;

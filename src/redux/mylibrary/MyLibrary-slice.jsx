@@ -10,29 +10,30 @@ const initialState = {
 const myLibrarySlice = createSlice({
   name: "myLibrary",
   initialState,
-  extraReducers: {
-    [myLibraryOperations.addMyLibrary.pending]: (state, action) => {
-      state.isLoader = true;
-    },
-    [myLibraryOperations.addMyLibrary.fulfilled]: (state, action) => {
-      state.items = [...state.items, action.payload];
-      state.isLoader = false;
-    },
-    [myLibraryOperations.myLibraryList.pending]: (state, action) => {
-      state.isLoader = true;
-    },
-    [myLibraryOperations.myLibraryList.fulfilled]: (state, action) => {
-      state.items = action.payload;
-      state.isLoader = false;
-    },
-    [myLibraryOperations.myLibraryDel.fulfilled]: (state, action) => {
-      const index = state.items.filter(item => item.id !== action.payload);
-      state.items = index; 
-    },
-    [myLibraryOperations.fetchCurrentItems.fulfilled]: (state, action) => {
-      state.items = action.payload;
-      state.isLoader = false;
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(myLibraryOperations.addMyLibrary.pending, (state) => {
+        state.isLoader = true;
+      })
+      .addCase(myLibraryOperations.addMyLibrary.fulfilled, (state, action) => {
+        state.items = [...state.items, action.payload];
+        state.isLoader = false;
+      })
+      .addCase(myLibraryOperations.myLibraryList.pending, (state) => {
+        state.isLoader = true;
+      })
+      .addCase(myLibraryOperations.myLibraryList.fulfilled, (state, action) => {
+        state.items = action.payload;
+        state.isLoader = false;
+      })
+      .addCase(myLibraryOperations.myLibraryDel.fulfilled, (state, action) => {
+        state.items = state.items.filter((item) => item.id !== action.payload);
+      })
+      .addCase(myLibraryOperations.fetchCurrentItems.fulfilled, (state, action) => {
+        state.items = action.payload;
+        state.isLoader = false;
+      });
   },
 });
 

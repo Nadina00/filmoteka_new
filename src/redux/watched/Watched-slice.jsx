@@ -10,29 +10,39 @@ const initialState = {
 const watchedSlice = createSlice({
   name: "watched",
   initialState,
-  extraReducers: {
-    [watchedOperations.addWatched.pending]: (state, action) => {
-      state.isLoader = true;
-    },
-    [watchedOperations.addWatched.fulfilled]: (state, action) => {
-      state.items = [...state.items, action.payload];
-      state.isLoader = false;
-    },
-    [watchedOperations.watchedList.pending]: (state, action) => {
-      state.isLoader = true;
-    },
-    [watchedOperations.watchedList.fulfilled]: (state, action) => {
-      state.items = action.payload;
-      state.isLoader = false;
-    },
-    [watchedOperations.watchedDel.fulfilled]: (state, action) => {  
-       const index = state.items.filter(item => item.id !== action.payload);
-       state.items = index;      
-    },
-    [watchedOperations.fetchCurrentWatched.fulfilled]: (state, action) => {
-      state.items = action.payload;
-      state.isLoader = false;
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(watchedOperations.addWatched.pending, (state) => {
+        state.isLoader = true;
+      })
+      .addCase(watchedOperations.addWatched.fulfilled, (state, action) => {
+        state.items = [...state.items, action.payload];
+        state.isLoader = false;
+      })
+      .addCase(watchedOperations.watchedList.pending, (state) => {
+        state.isLoader = true;
+      })
+      .addCase(watchedOperations.watchedList.fulfilled, (state, action) => {
+        state.items = action.payload;
+        state.isLoader = false;
+      })
+      .addCase(watchedOperations.watchedDel.fulfilled, (state, action) => {
+        state.items = state.items.filter(item => item.id !== action.payload);
+      })
+      .addCase(watchedOperations.fetchCurrentWatched.fulfilled, (state, action) => {
+        state.items = action.payload;
+        state.isLoader = false;
+      })
+      .addCase(watchedOperations.addWatched.rejected, (state) => {
+        state.isLoader = false;
+      })
+      .addCase(watchedOperations.watchedList.rejected, (state) => {
+        state.isLoader = false;
+      })
+      .addCase(watchedOperations.fetchCurrentWatched.rejected, (state) => {
+        state.isLoader = false;
+      });
   },
 });
 
