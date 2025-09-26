@@ -120,11 +120,19 @@ export const Modal = ({ film, toggle, onClickModal, filmIdLib = null }) => {
              
             ></img>
           ) : (
-            <img className={css.image}
-              src={imgScr + data.poster_path}
-              alt="foto film"
-             
-            ></img>
+            <img
+  className={css.image}
+  src={`https://image.tmdb.org/t/p/w342${data.poster_path || "/wwemzKWzjKYJFfCeiB57q3r4Bcm.png"}`}
+  srcSet={`
+    https://image.tmdb.org/t/p/w185${data.poster_path} 185w,
+    https://image.tmdb.org/t/p/w342${data.poster_path} 342w,
+    https://image.tmdb.org/t/p/w500${data.poster_path} 500w
+  `}
+  sizes="(max-width: 767px) 185px,
+         (max-width: 1279px) 342px,
+         500px"
+  alt="foto film"
+/>
           )}
           <div className={css.descriptionFilm}>
             <h2 className={css.title}> {data.title} </h2>
