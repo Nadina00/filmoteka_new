@@ -9,7 +9,7 @@ import { useMyLibrary } from "../../hook/myLibraryHook";
 import css from "./Modal.module.css";
 import { useWatched } from "../../hook/watchedHook";
 
-const imgScr = "https://image.tmdb.org/t/p/w500";
+const baseUrl = "https://image.tmdb.org/t/p"
 const APP_KEY = process.env.REACT_APP_KEY
 
 export const Modal = ({ film, toggle, onClickModal, filmIdLib = null }) => {
@@ -122,16 +122,20 @@ export const Modal = ({ film, toggle, onClickModal, filmIdLib = null }) => {
           ) : (
             <img
   className={css.image}
-  src={`https://image.tmdb.org/t/p/w342${data.poster_path || "/wwemzKWzjKYJFfCeiB57q3r4Bcm.png"}`}
-  srcSet={`
-    https://image.tmdb.org/t/p/w185${data.poster_path} 185w,
-    https://image.tmdb.org/t/p/w342${data.poster_path} 342w,
-    https://image.tmdb.org/t/p/w500${data.poster_path} 500w
-  `}
+  src={`${baseUrl}/w342${data.poster_path || "/wwemzKWzjKYJFfCeiB57q3r4Bcm.png"}`}
+  srcSet={
+    data.poster_path
+      ? `
+        ${baseUrl}/w185${data.poster_path} 185w,
+        ${baseUrl}/w342${data.poster_path} 342w,
+        ${baseUrl}/w500${data.poster_path} 500w
+      `
+      : ""
+  }
   sizes="(max-width: 767px) 185px,
          (max-width: 1279px) 342px,
          500px"
-  alt="foto film"
+  alt="film poster"
 />
           )}
           <div className={css.descriptionFilm}>
