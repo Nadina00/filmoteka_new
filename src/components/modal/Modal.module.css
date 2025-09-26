@@ -93,8 +93,13 @@
     margin-left: 20px;
   }
   .image{
-    width: 240px;
-    height: 357px;
+    .image {
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
   }
 
 }
